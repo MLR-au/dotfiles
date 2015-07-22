@@ -16,3 +16,5 @@ source ~/.aliases
 # key bindings
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
+
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
