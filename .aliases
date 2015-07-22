@@ -29,6 +29,8 @@ alias gca="git ca"
 # docker aliases 
 alias dps="docker ps"
 alias dpsa="docker ps -a"
+alias dexec='docker exec -ti'
+alias drun='docker run -ti'
 
 _dock_nuke() {
     for container in "$@"; do
@@ -46,8 +48,6 @@ _dock_rmi() {
 }
 alias drmi=_dock_rmi
 alias drm-stopped="docker rm $(docker ps -a -q)"
-
-alias dexec='docker exec -ti'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
