@@ -43,7 +43,7 @@ _dock_exec() {
     [[ "$#" > "1" ]] && echo "Pass reference to one container" && return
     docker exec -ti $1 bash
 }
-dexec=_dock_exec
+alias dexec=_dock_exec
 
 _dock_rmi() {
     for imageId in "$@"; do
