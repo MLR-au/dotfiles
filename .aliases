@@ -40,7 +40,7 @@ _dock_nuke() {
 alias dnuke-nuke=_dock_nuke
 
 _dock_exec() {
-    [[ $# > 1 ]] echo "Pass reference to one container" && return
+    [[ "$#" > "1" ]] && echo "Pass reference to one container" && return
     docker exec -ti $1 bash
 }
 dexec=_dock_exec
