@@ -29,8 +29,7 @@ alias gca="git ca"
 # docker aliases 
 alias dps="docker ps"
 alias dpsa="docker ps -a"
-alias dexec='docker exec -ti'
-alias drun='docker run -ti'
+alias drun='docker run -ti --rm '
 
 _dock_nuke() {
     for container in "$@"; do
@@ -38,7 +37,13 @@ _dock_nuke() {
            docker kill $container && docker rm $container
     done
 }
-alias dock-nuke=_dock_nuke
+alias dnuke-nuke=_dock_nuke
+
+_dock_exec() {
+    [[ $# > 1 ]] echo "Pass reference to one container" && return
+    docker exec -ti $1 bash
+}
+dexec=_dock_exec
 
 _dock_rmi() {
     for imageId in "$@"; do
