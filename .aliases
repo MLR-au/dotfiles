@@ -29,7 +29,8 @@ alias gca="git ca"
 # docker aliases 
 alias dps="docker ps"
 alias dpsa="docker ps -a"
-alias drun='docker run -ti --rm '
+alias dim="docker images"
+alias drun='docker run -ti --rm'
 
 _dock_nuke() {
     for container in "$@"; do
