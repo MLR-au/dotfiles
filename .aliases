@@ -38,7 +38,7 @@ _dock_nuke() {
            docker kill $container && docker rm $container
     done
 }
-alias dnuke-nuke=_dock_nuke
+alias dnuke=_dock_nuke
 
 _dock_exec() {
     [[ "$#" > "1" ]] && echo "Pass reference to one container" && return
