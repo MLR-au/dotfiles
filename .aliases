@@ -53,7 +53,7 @@ _dock_rmi() {
     done
 }
 alias drmi=_dock_rmi
-alias drm-stopped="docker rm $(docker ps -a -q)"
+alias drm="docker rm $(docker ps -a -q)"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
