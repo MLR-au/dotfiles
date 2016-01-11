@@ -94,7 +94,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 
     " Save to remote server
-    autocmd BufWritePost * ~/bin/write-file-to-remote
+    "autocmd BufWritePost * ~/bin/write-file-to-remote
 
 endif
 
