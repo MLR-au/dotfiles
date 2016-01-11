@@ -59,7 +59,7 @@ _drmi_none() {
 alias drmi-none=_drmi_none
 
 _dock_rmi() {
-    if 
+    [[ -z $@ ]] && return
     for imageId in "$@"; do
         echo "Removing image $imageId"
         docker rmi $imageId
