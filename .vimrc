@@ -89,8 +89,13 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Automatic commands
 if has("autocmd")
+
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+
+    " Save to remote server
+    autocmd BufWritePost * ~/bin/write-file-to-remote
+
 endif
 
 " Enable file type detection
