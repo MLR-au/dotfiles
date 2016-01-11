@@ -46,14 +46,26 @@ _dock_exec() {
 }
 alias dexec=_dock_exec
 
+_drm_stopped() {
+    stopped=$(docker ps -a -q)
+    [[ ! -z $stopped ]] && docker rm $stopped
+}
+alias drm-stopped=_drm_stopped
+
+_drmi_none() {
+    nones=$(dim | grep none | awk '{print $3}')
+    [[ ! -z $nones ]] && docker rmi $nones
+}
+alias drmi-none=_drmi_none
+
 _dock_rmi() {
+    if 
     for imageId in "$@"; do
         echo "Removing image $imageId"
         docker rmi $imageId
     done
 }
 alias drmi=_dock_rmi
-alias drm-stopped="docker rm $(docker ps -a -q)"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
