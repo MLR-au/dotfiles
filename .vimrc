@@ -101,7 +101,7 @@ endif
 " Enable file type detection
 filetype on
 " load filetype plugins
-filetype plugin on
+filetype plugin indent on
 
 " use solarized
 set background=dark
