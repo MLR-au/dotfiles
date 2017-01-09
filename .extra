@@ -1,2 +1,0 @@
-# PATH additions
-export PATH="~/bin:$PATH"

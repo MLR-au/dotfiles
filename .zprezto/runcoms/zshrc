@@ -13,6 +13,9 @@ fi
 # Customize to your needs...
 source ~/.aliases
 
+# source local things
+[[ -f ~/.extra ]] && source ~/.extra
+
 # key bindings
 bindkey '^[f' forward-word
 bindkey '^[b' backward-word
