@@ -74,5 +74,5 @@ fi
 TMPPREFIX="${TMPDIR%/}/zsh"
 
 # customise / override
-source .aliases
+source .local
 source .exports
