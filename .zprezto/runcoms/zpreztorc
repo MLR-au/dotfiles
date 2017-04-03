@@ -40,6 +40,8 @@ zstyle ':prezto:load' pmodule \
 #
 # Autosuggestions
 #
+zstyle ':completion:*' path-completion false
+zstyle ':completion:*' accept-exact-dirs true
 
 # Set the query found color.
 # zstyle ':prezto:module:autosuggestions:color' found ''
