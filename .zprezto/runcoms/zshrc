@@ -11,13 +11,3 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
-source ~/.aliases
-
-# source local things
-[[ -f ~/.extra ]] && source ~/.extra
-
-# key bindings
-bindkey '^[f' forward-word
-bindkey '^[b' backward-word
-
-export PATH=~/bin:~/src/node/current/bin:/usr/local/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin
