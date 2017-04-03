@@ -16,9 +16,6 @@ alias gadd="git add"
 alias gci="git ci"
 alias gca="git ca"
 
-# remove annoying zsh aliases
-unalias gs
-
 # docker aliases 
 alias dps="docker ps"
 alias dpsa="docker ps -a"
