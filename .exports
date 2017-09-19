@@ -19,4 +19,6 @@ export LESS_TERMCAP_md="$ORANGE"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-export PATH="/home/mlarosa/bin:/home/mlarosa/src/node/current/bin:$PATH"
+if [ -f "/usr/bin/lsb_release" ] ; then
+    export PATH="/home/mlarosa/bin:/home/mlarosa/.yarn/bin:$PATH"
+fi
