@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# source the config
+. ~/bin/config
+
+# ensure the thumbdrive is mounted
+is_backup_disk_mounted
+
+# stop all dev VMs and back them up to the thumbdrive
+stop_if_running
+
+echo "Backup VMs to backup disk"
+mkdir -p $BACKUP_DEVICE/VirtualBox\ VMs/$(hostname -s)
+rsync -av ~/VirtualBox\ VMs/ $BACKUP_DEVICE/VirtualBox\ VMs/$(hostname -s)/
+
+# 

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+HOST1="dev"
+HOST1_UUID="e1408540-2b72-47c1-bab6-92d5caa50592"
+
+# backup device
+BACKUP_DEVICE="/Volumes/BACKUP1"
+
+choose_vm() {
+    if [ $1 == 'dev' ]; then
+        export VM_UUID=$HOST1_UUID
+        export HOST=$HOST1
+    fi 
+}
+
+# is the backup disk mounted?
+is_backup_disk_mounted() {
+    if [ ! -e "$BACKUP_DEVICE" ] ; then
+        echo "USB device \"BACKUP1\" not mounted. Mount it then try this again."
+        exit 0
+    fi
+}
+
+# helper to start the VM up
+start_if_not_running() {
+# if not started - start 'er up
+    VBoxManage showvminfo {$VM_UUID} | grep State | grep -q  'running'
+    if [ $? == 1 ] ; then
+        # not running so start her up
+        VBoxManage startvm  {$VM_UUID} --type headless
+
+        # then wait before trying to log in
+        secs=$((20))
+        while [ $secs -gt 0 ]; do
+            echo -ne "Waiting for host to boot: $secs\033[0K\r"
+            sleep 1
+            : $((secs--))
+        done
+        echo "\033[0k\r"
+        ${HOME}/bin/mount-inteja
+    fi
+}
+
+
+# helper to shut the VM down
+stop_if_running() {
+    VBoxManage showvminfo {$VM_UUID} | grep State | grep -q  'running'
+    [[ $? == 0 ]] && VBoxManage controlvm  {$VM_UUID} acpipowerbutton
+
+    ${HOME}/bin/umount-inteja
+    # wait a bit 
+    secs=$((5))
+    while [ $secs -gt 0 ]; do
+        echo -ne "Just a moment...: $secs\033[0K\r"
+        sleep 1
+        : $((secs--))
+    done
+}
