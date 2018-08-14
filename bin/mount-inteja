@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mount_smbfs -f 0644 -d 0755 //mlarosa@inteja/mlarosa ${HOME}/mnt

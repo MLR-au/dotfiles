@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# source the config
+. ~/bin/config
+
+# have we been passed 2 arguments?
+if [ $# != 2 ]; then
+    echo "Must pass 2 args: [start | stop] [short name of VM] - see config"
+    exit
+fi
+
+# select the required vm
+choose_vm $2
+
+if [ "$1" == 'start' ] ; then
+    start_if_not_running
+    ssh -A $HOST
+
+elif [ "$1" == 'stop' ] ; then
+    stop_if_running
+
+else
+    echo "Script takes one argument: start || stop"
+    echo "ex. $0 start # starts up dev.local"
+    echo "ex. $0 stop  # stops dev.local"
+fi

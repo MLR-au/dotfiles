@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# source the config
+. ~/bin/config
+
+# ensure the thumbdrive is mounted
+is_backup_disk_mounted
+
+# if VM not running - start 'er up
+start_if_not_running
+
+# sync to the local disk
+echo "Backup $HOST:~/src/ to local disk..."
+rsync -av $HOST:~/src/ ~/src/
+
+# sync to the backup disk
+echo "Backup $HOST:~/src/ to the backup disk..."
+mkdir -p $BACKUP_DEVICE/src/$(hostname -s)
+rsync -av $HOST:~/src/ $BACKUP_DEVICE/src/$(hostname -s)/
+
+# shut her down
+stop_if_running
+
+# backup local stuff
+echo "Backup local code..."
+rsync -av ~/bin/ $BACKUP_DEVICE/src/bin/
