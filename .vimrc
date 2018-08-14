@@ -106,7 +106,7 @@ filetype plugin indent on
 " use solarized
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme molokai
 
 set wildmode=longest,list
 set foldmethod=indent
