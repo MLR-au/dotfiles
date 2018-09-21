@@ -100,7 +100,8 @@ zstyle ':prezto:module:history-substring-search' globbing-flags ''
 if [[ "$(uname)" == "Linux" ]] ; then
     zstyle ':prezto:module:prompt' theme 'steeef'
 elif [[ "$(uname)" == "Darwin" ]] ; then
-    zstyle ':prezto:module:prompt' theme 'sorin'
+    zstyle ':prezto:module:prompt' theme 'steeef'
+#    zstyle ':prezto:module:prompt' theme 'sorin'
 fi
 
 #
