@@ -24,6 +24,7 @@ alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias dim="docker images"
 alias drun='docker run -ti --rm'
+alias drm-stopped="docker rm -v $(docker ps -a -q -f status=exited)"
 
 _dock_nuke() {
     for container in "$@"; do
@@ -62,11 +63,6 @@ _dock_rm() {
 }
 alias drm=_dock_rm
 
-_drm_stopped() {
-    stopped=$(docker ps -a -q)
-    [[ ! -z $stopped ]] && docker rm $stopped
-}
-alias drm-stopped=_drm_stopped
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
