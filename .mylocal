@@ -13,11 +13,6 @@ alias -- -="cd -"
 alias h="history"
 alias j="jobs"
 alias v="vim"
-alias gdiff="git diff"
-alias gstat="git status"
-alias gadd="git add"
-alias gci="git ci"
-alias gca="git ca"
 
 # docker aliases 
 alias dps="docker ps"
