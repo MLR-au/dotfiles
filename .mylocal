@@ -19,7 +19,7 @@ alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias dim="docker images"
 alias drun='docker run -ti --rm'
-alias drm-stopped="docker rm -v $(docker ps -a -q -f status=exited)"
+alias drm-stopped="drm $(docker ps -aq)"
 
 _dock_nuke() {
     for container in "$@"; do
